@@ -26,6 +26,7 @@
     <version>9</version>
   </parent>
 
+
   <groupId>io.fabric8.devops.apps</groupId>
   <artifactId>dirsrv-389ds</artifactId>
   <version>0.1-SNAPSHOT</version>
@@ -73,7 +74,52 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <docker.image>fabric8/389ds</docker.image>
     <fabric8.maven.plugin.version>3.3.3</fabric8.maven.plugin.version>
+    <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
   </properties>
+
+  <profiles>
+    <profile>
+      <id>install</id>
+      <properties>
+        <skipTests>false</skipTests>
+      </properties>
+      <build>
+        <defaultGoal>clean install fabric8:resource</defaultGoal>
+      </build>
+    </profile>
+    <profile>
+      <id>release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>io.fabric8</groupId>
+            <artifactId>fabric8-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>resource</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>${maven-gpg-plugin.version}</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
   <build>
 
@@ -84,11 +130,20 @@
       </resource>
     </resources>
 
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>io.fabric8</groupId>
+          <artifactId>fabric8-maven-plugin</artifactId>
+          <version>${fabric8.maven.plugin.version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
     <plugins>
       <plugin>
         <groupId>io.fabric8</groupId>
         <artifactId>fabric8-maven-plugin</artifactId>
-        <version>${fabric8.maven.plugin.version}</version>
         <executions>
           <execution>
             <goals>
