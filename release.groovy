@@ -50,7 +50,7 @@ def release(project) {
         stagedProject = project
         useGitTagForNextVersion = true
         helmPush = false
-        groupId = 'io.fabric8'
+        groupId = 'io.fabric8.devops.apps'
         githubOrganisation = 'fabric8io'
         artifactIdToWatchInCentral = 'dirsrv-389ds'
         artifactExtensionToWatchInCentral = 'jar'
