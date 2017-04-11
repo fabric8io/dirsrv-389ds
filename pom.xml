@@ -29,7 +29,7 @@
 
   <groupId>io.fabric8.devops.apps</groupId>
   <artifactId>dirsrv-389ds</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0.0</version>
 
   <name>389ds::Directory Sever</name>
   <description>
