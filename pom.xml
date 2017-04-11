@@ -56,9 +56,9 @@
     </developer>
   </developers>
   <scm>
-    <connection>scm:git:git@github.com:fabric8io/kubeflix.git</connection>
-    <developerConnection>scm:git:git@github.com:fabric8io/kubeflix.git</developerConnection>
-    <url>http://github.com/fabric8io/kubeflix/</url>
+    <connection>scm:git:git@github.com:fabric8io/dirsrv-389ds.git</connection>
+    <developerConnection>scm:git:git@github.com:fabric8io/dirsrv-389ds.git</developerConnection>
+    <url>http://github.com/fabric8io/dirsrv-389ds/</url>
     <tag>${project.version}</tag>
   </scm>
 
